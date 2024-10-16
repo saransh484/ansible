@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  
+  tasks:
+  - name: ensure ssh is installed
+    apt:
+      name: ssh
+      state: present
+  - name: ensure sshd is running
+    service:
+      name: ssh
+      state: started
+      enabled: yes
